@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
+*{margin: 0px;padding:0px;box-sizing: border-box;}
+html{scroll-behavior: smooth; }
+body{
+   background: url(img/back.jpg);
+   background-size: cover;
+   background-position: right;
+   background-attachment: fixed;
+}
+/* section  */
+.nav
+{
+    background:#fff;
+    color:#000;
+    font-family: 'Rubik', sans-serif;
+    position: fixed;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px 10%;
+    width:100%;
+    box-shadow: 0 0 20px black;
+    z-index:1;
+    animation: navbar 1s 1 ease-in;
+
+}
+@keyframes navbar
+{
+    from{transform: translateY(-70px);}
+}
+a{text-decoration: none;}
+.nav .navLogo
+{
+    font-size:2rem;
+    font-weight: bold;
+    display: inline-flex;
+}
+.nav .navLinks a
+{
+    padding:0px 10px;
+    color:#000;
+}
+.nav .navLinks a:last-child
+{
+    color:white;
+    letter-spacing: .1rem;
+    text-shadow:0px 0px 2px crimson,
+    0px 0px 2px crimson,
+    0px 0px 2px crimson,
+    0px 0px 2px crimson;
+    padding:5px 20px;
+    border-radius:10px;
+    border:2px solid crimson;
+    transition:.2s ease;
+    transition-property:background, text-shadow,box-shadow;
+}
+.nav .navLinks a:last-child:hover
+{
+    text-shadow:0px 0px 2px white,
+    0px 0px 2px white,
+    0px 0px 2px white,
+    0px 0px 2px white;
+    background:crimson;
+    box-shadow: 2px 2px 5px black;
+}
+/* Nav End */
+/************************/
+
+/* Top Section */
+.top
+{
+    background:url("./img/back.jpg");
+    height:100%;width:100%;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.top{font-family: 'Rubik', sans-serif;}
+.top .topCenterElements
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    width:100%;
+}
+.top .topCenterElements .topSubheading
+{
+    font-size:1rem;
+    font-weight: bold;
+    letter-spacing:1rem;
+    opacity: 0;
+    transform: translateY(-25px);
+    animation: subheading 1s 1 ease;
+    animation-delay: 1.5s;
+    animation-fill-mode: forwards;
+}
+@keyframes subheading
+{
+    to
+    {
+        transform: translateY(0px);
+        opacity: .8;
+        letter-spacing: .2rem;
+    }
+}
+.top .topCenterElements .topHeading
+{
+    font-size:5rem;
+    font-weight: bold;
+    
+    position: relative;
+    text-shadow: 
+    1px 1px 0 gray,
+    2px 2px 0 gray,
+    3px 3px 0 gray,
+    4px 4px 0 gray;
+    animation: heading 1s 1 ease-in;
+    animation-delay:.5s;
+    animation-fill-mode: forwards;
+
+    transform: translateX(-145px);
+    letter-spacing: -3rem;
+    opacity: 0;
+}
+@keyframes heading
+{
+    to
+    {
+        letter-spacing: 1rem;
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.jsContact
+{
+    font-size:.9rem;
+    padding:5px 10px;
+    background:#000;
+    color:#fff;
+    display:inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+    border:2px solid black;
+    transition:.2s ease;
+    transition-property:background,color,font-weight;
+    
+    animation: jsbutton 1s 1 ease-out;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
+    transform: translateY(145px);
+}
+@keyframes jsbutton
+{
+    to
+    {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+.jsContact:hover
+{
+    background: transparent;
+    color:#000;
+    font-weight:bold;
+}
+.mouseScroll{
+    height:45px;
+    width:25px;
+    border:1px solid #fff;
+    position:absolute;
+    border-radius: 35px;
+    bottom:20px;
+    left:50%;
+    transform: translate(-50%);
+    animation: mousecome 1s 1 ease-in;
+    animation-delay:2.5s;
+    animation-fill-mode: forwards;
+
+    opacity: 0;
+}
+@keyframes mousecome
+{
+    to
+    {
+        opacity: 1;
+    }
+}
+.mouseScroll::after
+{
+    content:'';
+    background: white;
+    height:5px;width:5px;
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(9px,5px);
+    animation:mouseCenter 1.5s infinite ease-out;
+}
+
+@keyframes mouseCenter
+{
+    to{transform:translate(9px,30px);opacity: 0;}
+}
+/* Top section End */
+/* ****************** */
+/* About section */
+.about,.myWork,.contact
+{
+    background:#fff;
+    padding:0px 0px 0px 10%;
+    overflow: hidden;
+    font-family: 'Rubik', sans-serif;
+}
+.about .aboutFlex
+{
+    display: flex;
+}
+.flexitem{
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+}
+.about .aboutHeading,.myworkHeading,.contactHeading
+{
+    font-size:2rem;
+    color:#000;
+    padding-top:50px;
+    font-weight: bold;
+    position: relative;
+}
+.about .aboutHeading::before,.myworkHeading::before,.contactHeading::before
+{
+    content:'';
+    position: absolute;
+    height:3px; width:45px;
+    background: #000;
+    transform:translateY(-14px);
+
+}
+.aboutParagraph
+{
+    padding:30px 10px 50px 0px;
+    text-align: justify;
+    font-size:.9rem ;
+}
+
+.flexitem2 img
+{
+    height:100%;
+    width:auto;
+    transform:scaleX(-1);
+}
+.aboutLink
+{
+    padding:45px 0 25px 0;
+}
+.aboutLink a img{
+    height:35px;
+    border:2px solid black;
+    filter: invert(1);
+    border-radius: 50%;
+    transition:.3s ease;
+    transition-property: border,box-shadow;
+    box-shadow: 2px 2px 5px white;
+}
+.aboutLink a img:hover{
+    box-shadow: 0px 0px 5px white;
+}
+/* about me done */
+/* **************** */
+/* My works */
+
+
+
+
+
+/* end of my work
+************************* */
+
+/* contact section */
+
+.contact
+{
+    color:#fff;
+    height:500px;
+    background: rgba(255, 189, 252, 0.5);
+}
+.contactHeading{color:#fff}
+.contactHeading::before{background:#fff;}
+.contactElement
+{
+    display:flex;
+    justify-content: space-between;   
+    padding:30px 10% 0 0; 
+}
+.contactLeft
+{
+    margin-right:30px;
+
+}
+.contactLeft p
+{
+    padding-top:25px;
+}
+.contactLeft,.contactRight
+{
+    flex-basis: 0;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
+.contactLeft .contactAboutLink a img
+{
+    border:none;
+    filter:invert(0);
+    box-shadow:2px 2px 5px black;
+    transform: scale(.8);
+}
+
+/* 
+Rule for different resolution
+*/
+/* for desktop more resoluton than 1366 */
+@media only screen and (min-width: 1366px) {
+    .top .topCenterElements .topHeading {
+        font-size:10rem;
+    }
+    .top .topCenterElements .topSubheading{
+        font-size:2rem;
+    }
+    .jsContact{font-size:2rem;margin-top:125px;}
+    .about,.myWork,.contact{padding-left:20%}
+    .about *{font-size:1.2rem;}
+    .aboutFlex div:first-child{padding-right:30px;}
+    .contactLeft{font-size:1.2rem ;}
+  }
+@media only screen and (min-width:)

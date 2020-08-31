@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
 *{margin: 0px;padding:0px;box-sizing: border-box;}
-html{scroll-behavior: smooth; }
+html{scroll-behavior: smooth;}
 body{
    background: url(img/back.jpg);
    background-size: cover;
    background-position: right;
    background-attachment: fixed;
+   overflow-x: hidden;
 }
 /* section  */
 .nav
@@ -14,7 +16,8 @@ body{
     background:#fff;
     color:#000;
     font-family: 'Rubik', sans-serif;
-    position: fixed;
+    position: absolute;
+    opacity: .95;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -23,6 +26,7 @@ body{
     box-shadow: 0 0 20px black;
     z-index:1;
     animation: navbar 1s 1 ease-in;
+    filter: invert(1);
 
 }
 @keyframes navbar
@@ -30,12 +34,28 @@ body{
     from{transform: translateY(-70px);}
 }
 a{text-decoration: none;}
-.nav .navLogo
+.nav .navLogo 
 {
-    font-size:2rem;
+    font-size:1.5rem;
     font-weight: bold;
     display: inline-flex;
+    font-family: 'Bree Serif', serif;
+    text-shadow: 5px 5px 3px gray;
 }
+.nav .navLogo p{
+    letter-spacing: 0.2em;
+    animation: logotext 1s infinter alternate;
+}
+
+@keyframes logotext
+{
+    from{letter-spacing: 0.1em;}
+}
+
+.navLogo img{
+    height:42px;
+}
+.navLines{cursor: pointer;}
 .nav .navLinks a
 {
     padding:0px 10px;
@@ -64,6 +84,9 @@ a{text-decoration: none;}
     background:crimson;
     box-shadow: 2px 2px 5px black;
 }
+.menuBox{
+    display:none;
+}
 /* Nav End */
 /************************/
 
@@ -75,6 +98,7 @@ a{text-decoration: none;}
     background-position: center;
     background-size: cover;
     position: relative;
+    
 }
 .top{font-family: 'Rubik', sans-serif;}
 .top .topCenterElements
@@ -181,7 +205,6 @@ a{text-decoration: none;}
     animation: mousecome 1s 1 ease-in;
     animation-delay:2.5s;
     animation-fill-mode: forwards;
-
     opacity: 0;
 }
 @keyframes mousecome
@@ -229,7 +252,7 @@ a{text-decoration: none;}
 {
     font-size:2rem;
     color:#000;
-    padding-top:50px;
+    padding-top:70px;
     font-weight: bold;
     position: relative;
 }
@@ -275,7 +298,18 @@ a{text-decoration: none;}
 /* **************** */
 /* My works */
 
-
+.myworkPictures
+{
+    display:flex;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
+.myworkPictures img{
+    height:300px;
+    display:block;
+    padding:5px;
+    border-radius: 25px;
+}
 
 
 
@@ -328,15 +362,101 @@ Rule for different resolution
 /* for desktop more resoluton than 1366 */
 @media only screen and (min-width: 1366px) {
     .top .topCenterElements .topHeading {
-        font-size:10rem;
+        font-size:8rem;
+        color:#fff;
     }
     .top .topCenterElements .topSubheading{
-        font-size:2rem;
+        font-size:1.5rem;
+        color:#fff;
     }
+    .navLines{display:none}
     .jsContact{font-size:2rem;margin-top:125px;}
     .about,.myWork,.contact{padding-left:20%}
     .about *{font-size:1.2rem;}
     .aboutFlex div:first-child{padding-right:30px;}
     .contactLeft{font-size:1.2rem ;}
+
+    
   }
-@media only screen and (min-width:)
+  
+  /* ****************** */
+
+
+
+
+
+
+
+  /*************************/
+@media only screen and (max-width: 800px) /* for 1080p monitor*/
+{
+    .navLinks{display:none}
+    .navLines{
+        animation:navlines 2s 1 ease;
+    }
+    @keyframes navlines{
+        from{
+            transform: translateX(500px);
+        }
+    }
+    .navLines div{
+        height:3px;
+        width:30px;
+        background:#000;
+        margin:5px 2px;
+        cursor: pointer;
+    }
+    .top .topCenterElements .topSubheading
+    {
+        letter-spacing:.6rem;
+    }
+    .about,.myWork,.contact
+    {   
+        padding:0px 0px 0px 5%;
+    }
+
+
+    /* Menu phone --- */
+    .showHide{display:none;}
+    .menuBox{
+        position: absolute;
+        top:0px;
+        left:0px;
+        width:100%;
+        height:100%;
+        opacity: .95;
+        background: white;
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        
+        animation: menuboxshow 1s 1 ease;
+    }
+    .menuBox .menuRevail{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .menuBox .menuRevail a
+    {
+        margin:65px 0px;
+        position: relative;
+
+    }
+    .menuBoxLink
+    {
+        font-size:1.5rem;
+        letter-spacing: .1rem;
+        user-select: none;
+        cursor: pointer;
+        font-family: 'Bree Serif', serif;
+        transition:.2s ease;
+        transition-property: color;
+        color:#fff;
+        text-shadow:0px 0px 5px black,0px 0px 5px black;
+    }
+    .menuBoxLink:hover{
+        color:rgb(99, 98, 98);
+    }
+
+}

@@ -276,7 +276,7 @@ a{text-decoration: none;}
 {
     height:100%;
     width:auto;
-    transform:scaleX(-1);
+    transform:scaleX(-2);
 }
 .aboutLink
 {
